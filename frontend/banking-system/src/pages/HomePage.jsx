@@ -1,166 +1,166 @@
-import "../styles/tableContainer.css";
+import { useState } from "react";
 
 export default function HomePage() {
+  const [activeTab, setActiveTab] = useState("account");
+
+  const products = {
+    account: [
+      {
+        title: "Tài khoản thanh toán",
+        desc: "Quản lý chi tiêu, chuyển khoản nhanh chóng và an toàn.",
+        img: "https://images.unsplash.com/photo-1556740749-887f6717d7e4",
+      },
+    ],
+    card: [
+      {
+        title: "Thẻ ghi nợ",
+        desc: "Thanh toán tiện lợi, kiểm soát chi tiêu hiệu quả.",
+        img: "https://images.unsplash.com/photo-1601597111158-2fceff292cdc",
+      },
+      {
+        title: "Thẻ tín dụng",
+        desc: "Mua sắm trước – thanh toán sau với nhiều ưu đãi.",
+        img: "https://images.unsplash.com/photo-1616077168079-7e09e7fa193b",
+      },
+    ],
+    loan: [
+      {
+        title: "Vay tiêu dùng",
+        desc: "Giải pháp tài chính linh hoạt cho mọi nhu cầu.",
+        img: "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f",
+      },
+    ],
+  };
+
   return (
     <div
-      className="relative flex min-h-screen w-full flex-col bg-slate-50 overflow-x-hidden"
+      className="min-h-screen w-full bg-slate-50"
       style={{ fontFamily: 'Manrope, "Noto Sans", sans-serif' }}
     >
-      {/* HEADER */}
-      <header className="flex items-center justify-between border-b border-[#e7edf3] px-10 py-3">
-        <div className="flex items-center gap-4 text-[#0d141b]">
-          <div className="size-4">
-            <svg viewBox="0 0 48 48" fill="none">
-              <path
-                fillRule="evenodd"
-                clipRule="evenodd"
-                d="M24 4H6V17.3333V30.6667H24V44H42V30.6667V17.3333H24V4Z"
-                fill="currentColor"
-              />
-            </svg>
-          </div>
-          <h2 className="text-lg font-bold">Bank of Finance</h2>
-        </div>
+      {/* ================= HEADER ================= */}
+      <header className="flex items-center justify-between border-b px-10 py-4 bg-white">
+        <h1 className="text-xl font-black text-[#0d141b]">
+          Bank of Finance
+        </h1>
 
-        <div className="flex items-center gap-8">
-          <nav className="flex gap-9 text-sm font-medium">
-            <a href="#">Cá nhân</a>
-            <a href="#">Doanh nghiệp</a>
-            <a href="#">Về chúng tôi</a>
-          </nav>
-          <div className="flex gap-2">
-            <button className="h-10 rounded-lg bg-[#1380ec] px-4 text-sm font-bold text-white">
-              Đăng nhập
-            </button>
-            <button className="h-10 rounded-lg bg-[#e7edf3] px-4 text-sm font-bold">
-              Mở tài khoản
-            </button>
-          </div>
+        <nav className="flex gap-8 text-sm font-medium">
+          <a href="#">Cá nhân</a>
+          <a href="#">Doanh nghiệp</a>
+          <a href="#">Về chúng tôi</a>
+        </nav>
+
+        <div className="flex gap-2">
+          <button className="rounded-lg bg-[#1380ec] px-4 py-2 text-white text-sm font-bold">
+            Đăng nhập
+          </button>
+          <button className="rounded-lg bg-slate-100 px-4 py-2 text-sm font-bold">
+            Mở tài khoản
+          </button>
         </div>
       </header>
 
-      {/* CONTENT */}
-      <main className="flex justify-center px-40 py-5">
-        <div className="max-w-[960px] flex-1 space-y-6">
+      {/* ================= MAIN ================= */}
+      <main className="w-full px-10 py-8 flex justify-center">
+        <div className="w-full max-w-[1200px] space-y-12">
 
-          {/* HERO */}
-          <div
-            className="flex min-h-[480px] flex-col justify-end gap-6 rounded-lg bg-cover bg-center px-10 pb-10 text-white"
+          {/* ================= HERO ================= */}
+          <section
+            className="min-h-[480px] rounded-xl bg-cover bg-center p-10 text-white flex flex-col justify-end"
             style={{
               backgroundImage:
-                'linear-gradient(rgba(0,0,0,.1),rgba(0,0,0,.4)), url("https://lh3.googleusercontent.com/aida-public/AB6AXuAfnbER_a_oIHYNVtTOE274xgG8caBXFiwOfw6Ndjfq8cpTm-AnrT56humuaeizHrv0ghNWrZnzYP3dF5ZsceKOTE_VwNJOZsFf2qZZOeFUjN8jKrYNcrsEeonIp1yJTHKmO2V1Pl_0SXl1CpLqqOCB4TheP89SzKwM4heJWKOWnUyFYFwsCPLl0nBAkKHZvjSLilPpr0OvTTSF7RMPpYBOfgH9uR29QjYDeKgraK-XEXuTWSeplYZNLOfvNdN1fTE-29Ka2QJQp_I")',
+                'linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.6)), url("https://images.unsplash.com/photo-1507679799987-c73779587ccf")',
             }}
           >
-            <h1 className="text-5xl font-black">
-              Ngân hàng của bạn, mọi lúc, mọi nơi
-            </h1>
-            <p className="text-base">
-              Quản lý tài chính dễ dàng và an toàn với ứng dụng di động.
+            <h2 className="text-5xl font-black mb-4">
+              Ngân hàng của bạn, mọi lúc mọi nơi
+            </h2>
+            <p className="max-w-xl mb-6">
+              Trải nghiệm ngân hàng số hiện đại, an toàn và tiện lợi.
             </p>
-            <button className="w-fit rounded-lg bg-[#1380ec] px-5 py-3 font-bold">
+            <button className="w-fit rounded-lg bg-[#1380ec] px-6 py-3 font-bold">
               Tải ứng dụng
             </button>
-          </div>
+          </section>
 
-          {/* PRODUCTS */}
-          <h2 className="text-[22px] font-bold">Sản phẩm và dịch vụ</h2>
+          {/* ================= PRODUCTS ================= */}
+          <section>
+            <h2 className="text-2xl font-bold mb-6">
+              Sản phẩm và dịch vụ
+            </h2>
 
-          {[
-  {
-    title: "Tài khoản thanh toán",
-    desc: "Quản lý chi tiêu hàng ngày",
-    img: "https://images.unsplash.com/photo-1601597111158-2fceff292cdc",
-  },
-  {
-    title: "Thẻ tín dụng",
-    desc: "Ưu đãi và tích điểm thưởng",
-    img: "https://images.unsplash.com/photo-1589758438368-0ad531db3366",
-  },
-  {
-    title: "Vay tiêu dùng",
-    desc: "Giải pháp tài chính linh hoạt",
-    img: "https://images.unsplash.com/photo-1556740749-887f6717d7e4",
-  },
-  {
-    title: "Tiết kiệm online",
-    desc: "Lãi suất ưu đãi, linh hoạt",
-    img: "https://images.unsplash.com/photo-1579621970795-87facc2f976d",
-  },
-].map((item, i) => (
-  <div key={i} className="flex gap-4 rounded-lg bg-white p-4">
-    <div
-      className="aspect-video w-1/3 rounded-lg bg-cover bg-center"
-      style={{ backgroundImage: `url(${item.img})` }}
-    />
-    <div className="flex flex-1 flex-col justify-between">
-      <div>
-        <p className="text-lg font-bold">{item.title}</p>
-        <p className="text-[#4c739a]">{item.desc}</p>
-      </div>
-      <button className="w-fit rounded-lg bg-[#1380ec] px-4 py-2 text-sm text-white">
-        Xem thêm
-      </button>
-    </div>
-  </div>
-))}
+            {/* TABS */}
+            <div className="flex gap-8 border-b mb-6">
+              {[
+                { key: "account", label: "Tài khoản" },
+                { key: "card", label: "Thẻ" },
+                { key: "loan", label: "Vay" },
+              ].map((tab) => (
+                <button
+                  key={tab.key}
+                  onClick={() => setActiveTab(tab.key)}
+                  className={`pb-3 font-bold text-sm ${
+                    activeTab === tab.key
+                      ? "border-b-4 border-[#1380ec]"
+                      : "text-slate-400"
+                  }`}
+                >
+                  {tab.label}
+                </button>
+              ))}
+            </div>
 
+            {/* CONTENT */}
+            <div className="space-y-6">
+              {products[activeTab].map((item, i) => (
+                <div
+                  key={i}
+                  className="flex gap-6 bg-white p-6 rounded-xl shadow-sm"
+                >
+                  <div className="flex-1 space-y-3">
+                    <h3 className="text-lg font-bold">{item.title}</h3>
+                    <p className="text-slate-600">{item.desc}</p>
+                    <button className="rounded-lg bg-[#1380ec] px-4 py-2 text-sm text-white">
+                      Xem chi tiết
+                    </button>
+                  </div>
 
-          {/* NEWS */}
-          <h2 className="text-[22px] font-bold">Tin tức và khuyến mãi</h2>
-          <div className="flex gap-4 overflow-x-auto">
-            {[
-  {
-    title: "Đổi mới ngân hàng số",
-    img: "https://images.unsplash.com/photo-1554224155-6726b3ff858f",
-  },
-  {
-    title: "Khuyến mãi thẻ tín dụng",
-    img: "https://images.unsplash.com/photo-1563013544-824ae1b704d3",
-  },
-  {
-    title: "Ưu đãi khách hàng thân thiết",
-    img: "https://www.pcgamesn.com/wp-content/sites/pcgamesn/2023/06/Valorant-agent-Deadlock.jpg",
-  },
-].map((item, i) => (
-  <div key={i} className="min-w-[240px] space-y-2">
-    <div
-      className="aspect-video rounded-lg bg-cover bg-center"
-      style={{ backgroundImage: `url(${item.img})` }}
-    />
-    <p className="font-medium">{item.title}</p>
-    <p className="text-sm text-[#4c739a]">
-      Trải nghiệm dịch vụ tốt hơn
-    </p>
-  </div>
-))}
+                  <div
+                    className="w-[360px] aspect-video rounded-lg bg-cover bg-center"
+                    style={{ backgroundImage: `url(${item.img})` }}
+                  />
+                </div>
+              ))}
+            </div>
+          </section>
 
-          </div>
+          {/* ================= NEWS ================= */}
+          <section>
+            <h2 className="text-2xl font-bold mb-6">
+              Tin tức & khuyến mãi
+            </h2>
 
-          {/* TABLE */}
-          <h2 className="text-[22px] font-bold">Lãi suất và tỷ giá</h2>
-          <div className="overflow-hidden rounded-lg border">
-            <table className="w-full">
-              <thead>
-                <tr className="bg-slate-100">
-                  <th className="col-120 px-4 py-3 text-left">Sản phẩm</th>
-                  <th className="col-240 px-4 py-3 text-left">Lãi suất</th>
-                  <th className="col-360 px-4 py-3 text-left">Tỷ giá</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr className="border-t">
-                  <td className="col-120 px-4 py-2">Tiết kiệm</td>
-                  <td className="col-240 px-4 py-2">5.5%</td>
-                  <td className="col-360 px-4 py-2">-</td>
-                </tr>
-                <tr className="border-t">
-                  <td className="col-120 px-4 py-2">USD/VND</td>
-                  <td className="col-240 px-4 py-2">-</td>
-                  <td className="col-360 px-4 py-2">23,500 / 23,700</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+            <div className="grid grid-cols-3 gap-6">
+              {[
+                "Ưu đãi thẻ tín dụng",
+                "Ngân hàng số 2025",
+                "Tri ân khách hàng",
+              ].map((title, i) => (
+                <div key={i} className="space-y-3">
+                  <div
+                    className="aspect-video rounded-lg bg-cover bg-center"
+                    style={{
+                      backgroundImage:
+                        'url("https://images.unsplash.com/photo-1526304640581-d334cdbbf45e")',
+                    }}
+                  />
+                  <h4 className="font-bold">{title}</h4>
+                  <p className="text-sm text-slate-600">
+                    Khám phá các chương trình ưu đãi hấp dẫn.
+                  </p>
+                </div>
+              ))}
+            </div>
+          </section>
 
         </div>
       </main>
