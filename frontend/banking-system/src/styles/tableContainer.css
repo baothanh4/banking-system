@@ -1,0 +1,17 @@
+@container (max-width: 120px) {
+  .col-120 {
+    display: none;
+  }
+}
+
+@container (max-width: 240px) {
+  .col-240 {
+    display: none;
+  }
+}
+
+@container (max-width: 360px) {
+  .col-360 {
+    display: none;
+  }
+}
