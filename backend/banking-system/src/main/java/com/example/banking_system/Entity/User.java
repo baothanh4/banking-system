@@ -13,36 +13,38 @@ import org.springframework.data.annotation.CreatedDate;
 import java.time.LocalDateTime;
 
 @Entity
-@Data
 @Table(name = "users")
-@AllArgsConstructor
+@Data
 @NoArgsConstructor
+@AllArgsConstructor
 public class User {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "phone", unique = true, nullable = false)
+    // Số điện thoại = username
+    @Column(name = "phone", unique = true, nullable = false, length = 15)
     private String phone;
 
-    @Column(name = "password",nullable = false)
+    @Column(name = "password", nullable = false)
     private String password;
 
-    @Column(name="email",unique = true,nullable = false)
+    @Column(name="email", unique = true)
     private String email;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name ="role_id")
     private Role role;
 
     @Enumerated(EnumType.STRING)
+    @Column(name = "status")
     private UserStatus status;
 
     @CreationTimestamp
-    @Column(name = "created_at")
-    private LocalDateTime created_at;
+    private LocalDateTime createdAt;
 
     @UpdateTimestamp
-    @Column(name = "updated_at")
-    private LocalDateTime updated_at;
+    private LocalDateTime updatedAt;
 }
+
