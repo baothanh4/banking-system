@@ -29,4 +29,10 @@ public class OtpVerification {
 
     @Column(name = "verified")
     private boolean verified;
+
+    @Column(name = "purpose")
+    private String purpose;
+
+    @Column(name ="session_id")
+    private String sessionId;
 }
